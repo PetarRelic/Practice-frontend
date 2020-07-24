@@ -1,0 +1,22 @@
+<div class="card my-5">
+  <div class="card-body">
+    <a routerLink="/gradovi/grad-form" class="btn btn-info">Dodaj Grad</a>
+    <p></p>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Naziv</th>
+          <th scope="col">Akcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let grad of gradovi">
+          <td>{{ grad.id }}</td>
+          <td>{{ grad.naziv }}</td>
+          <td><a href="/gradovi" class="btn btn-danger" (click)="onDelete(grad.id)">Obrisi</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

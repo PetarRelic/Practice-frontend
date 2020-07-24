@@ -1,0 +1,19 @@
+<div class="card my-5">
+    <div class="card-body">
+    <h2 style="text-align: center;">Dodaj novi grad</h2>
+      <form (ngSubmit)="onSubmit()" #gradForm="ngForm">
+        <div class="form-group">
+          <label for="naziv">Naziv</label>
+          <input type="text" [(ngModel)]="grad.naziv"
+            class="form-control"
+            id="naziv"
+            name="naziv"
+            placeholder="Unesi naziv grada"
+            required #naziv="ngModel">
+        </div>
+        <div [hidden]="!naziv.pristine" class="alert alert-danger">Naziv je obavezan</div>
+        <button type="submit" [disabled]="!gradForm.form.valid"
+          class="btn btn-info">Dodaj</button>
+      </form>
+    </div>
+  </div>

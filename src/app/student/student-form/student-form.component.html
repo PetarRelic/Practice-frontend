@@ -1,0 +1,47 @@
+<div class="card my-5">
+    <div class="card-body">
+    <h2 style="text-align: center;">Dodaj novog studenta</h2>
+      <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+        <div class="form-group">
+          <label for="ime">Ime</label>
+          <input type="text" [(ngModel)]="student.ime"
+            class="form-control"
+            id="ime"
+            name="ime"
+            placeholder="Unesi ime"
+            required #ime="ngModel">
+          <span class="help-block" *ngIf="!ime.valid && ime.touched">Unesite ime!</span>
+        </div>
+        <div class="form-group">
+          <label for="prezime">Prezime</label>
+          <input type="text" [(ngModel)]="student.prezime"
+            class="form-control"
+            id="prezime"
+            name="prezime"
+            placeholder="Unesi prezime"
+            required #prezime="ngModel">
+            <span class="help-block" *ngIf="!prezime.valid && prezime.touched">Unesite prezime!</span>
+        </div>
+        <div class="form-group">
+          <label for="datumRodjenja">Datum Rodjenja</label>
+          <input type="date" [(ngModel)]="student.datumRodjenja"
+            class="form-control"
+            id="datumRodjenja"
+            name="datumRodjenja"
+            placeholder="Unesi datum rodjenja"
+            required #datumRodjenja="ngModel">
+            <span class="help-block" *ngIf="!datumRodjenja.valid && datumRodjenja.touched">Unesite datum rodjenja!</span>
+        </div>
+        <!-- dropdown -->
+        <div class="form-group">
+          <label for="grad">Grad</label>
+          <select id="grad" name="grad" class="form-control" [(ngModel)]="student.grad" required>
+            <option *ngFor="let grad of gradovi" [ngValue]=grad>{{ grad.naziv }}</option>
+          </select>
+        </div>
+
+        <button type="submit" [disabled]="!studentForm.form.valid"
+          class="btn btn-info">Dodaj</button>
+      </form>
+    </div>
+  </div>

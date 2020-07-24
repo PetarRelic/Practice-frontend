@@ -1,0 +1,57 @@
+<div class="card my-5">
+    <div class="card-body">
+    <h2 style="text-align: center;">Dodaj novog studenta</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="myform">
+        <div class="form-group" style="display: none;">
+          <label for="id">ID</label>
+          <input type="text" formControlName="id"
+            class="form-control"
+            id="id"
+            name="id"
+            required readonly>
+        </div>
+        <div class="form-group">
+          <label for="ime">Ime</label>
+          <input type="text" formControlName="ime"
+            class="form-control"
+            id="ime"
+            name="ime"
+            required >
+        </div>
+        <div class="form-group">
+          <label for="prezime">Prezime</label>
+          <input type="text" formControlName="prezime"
+            class="form-control"
+            id="prezime"
+            name="prezime"
+            required >
+        </div>
+        <div class="form-group">
+          <label for="datumRodjenja">Datum Rodjenja</label>
+          <input type="date" formControlName="datumRodjenja"
+            class="form-control"
+            id="datumRodjenja"
+            name="datumRodjenja"
+            required >
+        </div>
+        <!-- dropdown -->
+        <!-- <div class="form-group">
+          <label for="grad">Grad</label>
+          <select id="grad" name="grad" class="form-control" formControlName="grad" required>
+            <option *ngFor="let grad of gradovi" [ngValue]=grad>{{ grad.naziv }}</option>
+          </select>
+        </div> -->
+       <div class="form-group" style="display: none;">
+          <label for="grad">Grad</label>
+          <input type="text" formControlName="grad"
+            class="form-control"
+            id="grad"
+            name="grad"
+            required readonly>
+        </div>
+
+        <button type="submit" [disabled]="!myform.valid"
+          class="btn btn-info">Dodaj</button>
+      </form>
+    </div>
+  </div>

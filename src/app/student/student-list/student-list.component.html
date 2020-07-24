@@ -1,0 +1,28 @@
+<div class="card my-5">
+  <div class="card-body">
+    <a routerLink="/studenti/student-form" class="btn btn-info">Dodaj Studenta</a>
+    <p></p>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ime</th>
+          <th scope="col">Prezime</th>
+          <th scope="col">Datum rodjenja</th>
+          <th scope="col">Grad u kom studiraju</th>
+          <th scope="col">Akcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studenti">
+          <td>{{ student.id }}</td>
+          <td>{{ student.ime }}</td>
+          <td>{{ student.prezime }}</td>
+          <td>{{ student.datumRodjenja | date }}</td>
+          <td>{{ student.grad.naziv }}</td>
+          <td><a class="btn btn-info" (click)="onEditStudent(student.id)">Izmeni</a> | <a href="/studenti" class="btn btn-danger" (click)="onDelete(student.id)">Obrisi</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
